@@ -1,0 +1,59 @@
+{
+  "year": 2026,
+  "updated_at": "2026-10-28T09:54:48.408639+00:00",
+  "scope": "Public + accessible private PRs",
+  "lines_added": 1063040,
+  "lines_deleted": 806317,
+  "prs_opened": 221,
+  "prs_merged": 217,
+  "weeks": [
+    {
+      "start": "2026-08-10",
+      "opened": 7
+    },
+    {
+      "start": "2026-08-17",
+      "opened": 1
+    },
+    {
+      "start": "2026-08-24",
+      "opened": 2
+    },
+    {
+      "start": "2026-08-31",
+      "opened": 12
+    },
+    {
+      "start": "2026-09-07",
+      "opened": 20
+    },
+    {
+      "start": "2026-09-14",
+      "opened": 17
+    },
+    {
+      "start": "2026-09-21",
+      "opened": 15
+    },
+    {
+      "start": "2026-09-28",
+      "opened": 29
+    },
+    {
+      "start": "2026-10-05",
+      "opened": 19
+    },
+    {
+      "start": "2026-10-12",
+      "opened": 24
+    },
+    {
+      "start": "2026-10-19",
+      "opened": 23
+    },
+    {
+      "start": "2026-10-26",
+      "opened": 27
+    }
+  ]
+}
