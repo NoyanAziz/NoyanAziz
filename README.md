@@ -10,7 +10,11 @@ I build full-stack products, workflow automation, and integrations—from backen
 
 ![Year-to-date engineering activity and weekly PRs](assets/activity.svg)
 
-Lines added/deleted come from my **authored non-merge commits this calendar year (UTC)**, including commits on other people's PRs. Commit SHAs are counted once; synthetic squash results are excluded when the original PR commits are available. Counts include generated files and do not measure unique hand-written code. **PRs contributed to** includes any discovered PR with one of those commits; **PRs opened/merged** and the weekly chart still count PRs I opened. Coverage follows token access and GitHub history availability. Private work is shown only as anonymous totals.
+**PR change volume** shows the full additions/deletions in PRs I opened that merged this calendar year (UTC), including generated files and changes by collaborators. It can include overlapping work across separate PRs.
+
+**Commit contributions** separately shows my authored non-merge commits, including work on other people's PRs. Commit SHAs are counted once and synthetic squash results are excluded when original PR commits are available. **PRs contributed to** includes any discovered PR with one of those commits. These metrics are not added together and do not measure unique hand-written code.
+
+The weekly chart counts PRs I opened; weeks start Monday and the final week is partial. Coverage follows token access and available GitHub history. Private work is shown only as anonymous totals.
 
 ## My work at a glance
 

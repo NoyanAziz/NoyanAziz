@@ -14,13 +14,16 @@ The workflow token's `contents: write` permission is for committing generated as
 
 ## Metric definitions
 
-- **Lines added/deleted this year:** sums of additions/deletions for commits whose primary GitHub-linked author is this account and whose author timestamp is in the current UTC year. Includes commits on other people's PRs, whether merged or unmerged. Excludes merge commits (multiple parents). Deduplicates by commit SHA across search results, repositories and PRs. When a PR's original commits are scanned, its synthetic merge/squash result is excluded if it isn't one of those original commits. Generated/vendor files are included; this is change volume, not unique code or productivity. Co-author trailers alone do not qualify a commit.
+- **PR lines added/deleted:** full diffs of PRs I opened that merged in the current UTC year. This restores the original PR-volume definition. Includes collaborator changes, generated files and overlapping work across separate PRs. It is not attributed solely to my authored commits.
+- **Commit lines added/deleted:** sums of additions/deletions for commits whose primary GitHub-linked author is this account and whose author timestamp is in the current UTC year. Includes commits on other people's PRs, whether merged or unmerged. Excludes merge commits (multiple parents). Deduplicates by commit SHA across search results, repositories and PRs. When a PR's original commits are scanned, its synthetic merge/squash result is excluded if it isn't one of those original commits. Generated/vendor files are included; this is change volume, not unique code or productivity. Co-author trailers alone do not qualify a commit.
 - **Authored commits:** number of those unique eligible commits.
 - **PRs contributed to:** distinct discovered PRs containing at least one eligible authored commit, regardless of who opened the PR or its state. The subset opened by others is shown separately. These PRs need not have been created this year.
 - **PRs opened this year:** authored PRs created in the current UTC calendar year, regardless of their current state.
 - **PRs merged this year:** authored PRs merged in the current UTC calendar year, including PRs opened in earlier years.
 - **Weekly PRs:** authored PRs created each Monday–Sunday UTC week, over the last 12 weeks. The final week is partial.
 - **Public work stats:** public owned repositories and primary languages of non-fork repositories, excluding the profile repository from original project counts.
+
+PR change volume and commit change volume are separate metrics and must never be summed or substituted for each other.
 
 ## Commit discovery and coverage
 
