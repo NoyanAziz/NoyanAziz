@@ -10,7 +10,7 @@ I build full-stack products, workflow automation, and integrations—from backen
 
 ![Year-to-date engineering activity and weekly PRs](assets/activity.svg)
 
-Lines added/deleted are the full diffs of PRs I authored that were **merged this calendar year (UTC)**. They include generated files and aren't a count of unique hand-written code. PRs opened are grouped by creation date; weekly counts start on Monday, with the current week partial. Totals cover only repositories accessible to the refresh token. Private work, when enabled, is shown only as anonymous aggregates.
+Lines added/deleted come from my **authored non-merge commits this calendar year (UTC)**, including commits on other people's PRs. Commit SHAs are counted once; synthetic squash results are excluded when the original PR commits are available. Counts include generated files and do not measure unique hand-written code. **PRs contributed to** includes any discovered PR with one of those commits; **PRs opened/merged** and the weekly chart still count PRs I opened. Coverage follows token access and GitHub history availability. Private work is shown only as anonymous totals.
 
 ## My work at a glance
 

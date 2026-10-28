@@ -1,9 +1,12 @@
 {
   "year": 2026,
-  "updated_at": "2026-10-28T09:54:48.408639+00:00",
-  "scope": "Public + accessible private PRs",
-  "lines_added": 1063040,
-  "lines_deleted": 806317,
+  "updated_at": "2026-10-28T10:58:02.607017+00:00",
+  "scope": "Public + accessible private work",
+  "lines_added": 264066,
+  "lines_deleted": 816541,
+  "commits_authored": 491,
+  "prs_contributed": 217,
+  "others_prs_contributed": 36,
   "prs_opened": 221,
   "prs_merged": 217,
   "weeks": [

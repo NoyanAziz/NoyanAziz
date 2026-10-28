@@ -17,15 +17,16 @@ def pr(created, merged=None, private=False, added=10, deleted=3):
 class ActivityTests(unittest.TestCase):
     now = dt.datetime(2026, 1, 6, 12, tzinfo=dt.timezone.utc)
 
-    def test_old_pr_merged_this_year_counts_lines_but_not_opened(self):
+    def test_old_pr_merged_this_year_counts_merged_not_opened(self):
         result = activity.aggregate([pr('2025-12-20T00:00:00Z', '2026-01-01T00:00:00Z')], self.now)
-        self.assertEqual((result['prs_opened'], result['prs_merged'], result['lines_added']), (0, 1, 10))
+        self.assertEqual((result['prs_opened'], result['prs_merged']), (0, 1))
+        self.assertEqual(result['lines_added'], 0)  # Full PR diffs are no longer attributed to the PR author.
 
     def test_private_is_excluded_unless_explicitly_enabled(self):
         rows = [pr('2026-01-05T00:00:00Z', '2026-01-06T00:00:00Z', private=True)]
         self.assertEqual(activity.aggregate(rows, self.now)['prs_opened'], 0)
         result = activity.aggregate(rows, self.now, True)
-        self.assertEqual((result['prs_opened'], result['lines_added'], result['lines_deleted']), (1, 10, 3))
+        self.assertEqual(result['prs_opened'], 1)
         self.assertNotIn('repository', str(result))
 
     def test_week_boundaries_and_future_data(self):

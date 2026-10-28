@@ -14,12 +14,20 @@ The workflow token's `contents: write` permission is for committing generated as
 
 ## Metric definitions
 
-- **Lines added/deleted this year:** sums of `additions`/`deletions` from authored PRs whose `mergedAt` falls in the current UTC calendar year. Includes generated files, vendor files, and overlapping changes in separate PRs. Excludes direct commits without a PR and unmerged PRs. This is merged-PR diff volume, not unique source lines or productivity.
+- **Lines added/deleted this year:** sums of additions/deletions for commits whose primary GitHub-linked author is this account and whose author timestamp is in the current UTC year. Includes commits on other people's PRs, whether merged or unmerged. Excludes merge commits (multiple parents). Deduplicates by commit SHA across search results, repositories and PRs. When a PR's original commits are scanned, its synthetic merge/squash result is excluded if it isn't one of those original commits. Generated/vendor files are included; this is change volume, not unique code or productivity. Co-author trailers alone do not qualify a commit.
+- **Authored commits:** number of those unique eligible commits.
+- **PRs contributed to:** distinct discovered PRs containing at least one eligible authored commit, regardless of who opened the PR or its state. The subset opened by others is shown separately. These PRs need not have been created this year.
 - **PRs opened this year:** authored PRs created in the current UTC calendar year, regardless of their current state.
 - **PRs merged this year:** authored PRs merged in the current UTC calendar year, including PRs opened in earlier years.
 - **Weekly PRs:** authored PRs created each Monday–Sunday UTC week, over the last 12 weeks. The final week is partial.
 - **Public work stats:** public owned repositories and primary languages of non-fork repositories, excluding the profile repository from original project counts.
 
+## Commit discovery and coverage
+
+The collector combines GitHub's authored-commit search with full commit pagination on recently updated PRs. It discovers repositories from indexed authored commits, this account's recent authored PRs, GitHub's contributed-repositories connection, and accessible private memberships active this year. PR scanning does not filter by PR author. This recovers work on colleagues' PRs, including original commits retained in squash-merged PR histories. Both PR and commit connections are fully paginated. Search windows are split when the 1,000-result limit is exceeded; incomplete responses fail the refresh.
+
+This is an accessible-history snapshot, not a guarantee of every commit ever pushed. Unindexed commits on standalone branches without a discoverable PR, unlinked author email identities, deleted/inaccessible history, and public repositories not discovered through these sources may be absent. Distinct SHAs created by rebases or cherry-picks can represent overlapping work; there is no patch-level semantic deduplication.
+
 `assets/activity.json` contains only the aggregates used in the SVG. The current snapshot's scope is written on the image.
 
-Data fields: [GitHub GraphQL PR reference](https://docs.github.com/en/graphql/reference/pulls).
+Data fields: [GitHub GraphQL PR reference](https://docs.github.com/en/graphql/reference/pulls) and [GitHub commit API](https://docs.github.com/en/rest/commits/commits).
